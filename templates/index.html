@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>BubbleTea</h2>
+    <form action="{{ url_for('sign') }}" method=post>
+	<p class="heading">Name: <input type=text name=name>
+	<p class="heading">Street Address: <input type=text name=street_address>
+	<p class="heading">City: <input type=text name=city>
+	<p class="heading">State: <input type=text name=state>
+	<p class="heading">Zip Code: <input type=text name=zip_code>
+	<p class="heading">Store Hours: <input type=text name=store_hours>
+	<p class="heading">Phone Number: <input type=text name=phone_number>
+	<p class="heading">Rating: <input type=text name=rating>
+	<p class="heading">Review: <input type=text name=review>
+        <p class="heading">Drink Order:
+	<textarea rows=5 cols=50 name=drink_order></textarea></p>
+	<p><input type=submit value=Sign></p>
+    </form>
+
+    <h2>Entries</h2>
+    {% for entry in entries %}
+        <p class=entry>
+            {{ entry.name }} <br>{{ entry.street_address }}<br>
+            {{ entry.city }} <br>{{ entry.state }}<br>
+	    {{ entry.zip_code }}<br>
+            {{ entry.store_hours }} <br>{{ entry.phone_number }}<br>
+            {{ entry.rating }} <br>{{ entry.review }}<br>
+	    {{ entry.drink_order }}<br>
+        </p>
+    {% endfor %}
+
+{% endblock %}

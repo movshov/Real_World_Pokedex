@@ -1,0 +1,9 @@
+FROM alpine:3.8
+MAINTAINER "movshov@pdx.edu"
+COPY . /app
+WORKDIR /app
+RUN apk --no-cache add python py-pip\
+    && pip install --no-cache-dir -r requirements.txt \
+    && rm -rf /var/cache/apk/* \
+    && apk del py-pip  
+ENTRYPOINT ["python", "app.py"]
