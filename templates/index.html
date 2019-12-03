@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>BubbleTea</h2>
+    <h2>Real World Pokedex</h2>
     <form action="{{ url_for('sign') }}" method=post>
 	<p class="heading">Name: <input type=text name=name>
 	<p class="heading">Species: <input type=text name=species>
@@ -9,17 +9,17 @@
 	<p class="heading">Sex: <input type=text name=sex>
         <p class="heading">Traits:
 	<textarea rows=5 cols=50 name=traits></textarea></p>
-	<p class="heading">Image: <input type=image name=image>
+	<p class="heading">Image: <input type=file name=image accept=image/*>
 	<p><input type=submit value=Sign></p>
     </form>
 
     <h2>Entries</h2>
     {% for entry in entries %}
         <p class=entry>
-            {{ entry.name }} <br>{{ entry.type }}<br>
+            {{ entry.name }} <br>{{ entry.species }}<br>
             {{ entry.breed }} <br>{{ entry.age }}<br>
 	    {{ entry.sex }}<br>
-            {{ entry.Traits }} <br>{{ entry.image }}<br>
+            {{ entry.traits }} <br>{{ entry.image }}<br>
         </p>
     {% endfor %}
 
