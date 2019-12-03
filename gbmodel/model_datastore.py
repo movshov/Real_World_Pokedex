@@ -32,7 +32,7 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity['name'],entity['type'],entity['breed'],entity['age'],entity['sex'],entity['traits'],entity['image']]
+    return [entity['name'],entity['species'],entity['breed'],entity['age'],entity['sex'],entity['traits'],entity['image']]
 
 class model(Model):
     def __init__(self):
@@ -43,12 +43,12 @@ class model(Model):
         entities = list(map(from_datastore,query.fetch()))
         return entities
 
-    def insert(self, name, type, breed, age, sex, traits, image):
+    def insert(self, name, species, breed, age, sex, traits, image):
         key = self.client.key('Pokedex')
         rev = datastore.Entity(key)
         rev.update( {
             'name': name,
-	    'type': type,
+	    'species': species,
 	    'breed': breed,
 	    'age': age,
 	    'sex': sex,
