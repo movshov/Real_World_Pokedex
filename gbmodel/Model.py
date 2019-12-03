@@ -8,19 +8,16 @@ class Model():
         """
         pass
     # To insert a new entry.
-    def insert(self, name, street_address, city, state, zip_code, store_hours, phone_number, rating, review, drink_order):
+    def insert(self, name, type, breed, age, sex, traits, image):
         """
         Inserts entry into database
         :param name: String
-        :param street_address: String
-        :param city: String
-	:param state: String
-        :param zip_code: Integer
-        :param store_hours: String
-        :param phone_number: String
-        :param rating: Integer
-        :param review: String
-        :param drink_order: String
+        :param type: String
+        :param breed: String
+	:param age: Integer
+        :param sex: String
+        :param traits: String
+        :param image: image
         :return: none
         :raises: Database errors on connection and insrtion
         """

@@ -32,31 +32,28 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity['name'],entity['street_address'],entity['city'],entity['state'],entity['zip_code'],entity['store_hours'],entity['phone_number'],entity['rating'],entity['review'],entity['drink_order']]
+    return [entity['name'],entity['type'],entity['breed'],entity['age'],entity['sex'],entity['traits'],entity['image']]
 
 class model(Model):
     def __init__(self):
         self.client = datastore.Client('cs430-bar-movshovich')
 
     def select(self):
-        query = self.client.query(kind = 'Bobba_Entry')
+        query = self.client.query(kind = 'Pokedex')
         entities = list(map(from_datastore,query.fetch()))
         return entities
 
-    def insert(self, name, street_address, city, state, zip_code, store_hours, phone_number, rating, review, drink_order):
-        key = self.client.key('Bobba_Entry')
+    def insert(self, name, type, breed, age, sex, traits, image):
+        key = self.client.key('Pokedex')
         rev = datastore.Entity(key)
         rev.update( {
             'name': name,
-	    'street_address': street_address,
-	    'city': city,
-	    'state': state,
-	    'zip_code': zip_code,
-	    'store_hours': store_hours,
-	    'phone_number': phone_number,
-	    'rating': rating,
-            'review': review,
-            'drink_order': drink_order
+	    'type': type,
+	    'breed': breed,
+	    'age': age,
+	    'sex': sex,
+	    'traits': traits,
+	    'image': image,
             })
         self.client.put(rev)
         return True
