@@ -17,11 +17,10 @@ class Model():
 	:param age: Integer
         :param sex: String
         :param traits: String
-        :param image: file
+        :param image: File
         :return: none
         :raises: Database errors on connection and insrtion
         """
         pass
-
-
-
+    
+    

@@ -15,6 +15,7 @@
 from .Model import Model
 from datetime import datetime
 from google.cloud import datastore
+from flask import request
 
 def from_datastore(entity):
     """Translates Datastore results into the format expected by the
@@ -38,6 +39,7 @@ class model(Model):
     def __init__(self):
         self.client = datastore.Client('cs430-bar-movshovich')
 
+    #return all entities from datastore.
     def select(self):
         query = self.client.query(kind = 'Pokedex')
         entities = list(map(from_datastore,query.fetch()))
@@ -57,4 +59,5 @@ class model(Model):
             })
         self.client.put(rev)
         return True
+
 
