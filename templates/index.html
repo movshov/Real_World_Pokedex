@@ -15,12 +15,15 @@
 
     <h2>Entries</h2>
     {% for entry in entries %}
-        <p class=entry>
-            {{ entry.name }} <br>{{ entry.species }}<br>
-            {{ entry.breed }} <br>{{ entry.age }}<br>
-	    {{ entry.sex }}<br>
-            {{ entry.traits }} <br>{{ entry.image }}<br>
-        </p>
+    <p class=entry>
+    Name: {{ entry.name }} <br>
+    Species: {{ entry.species }}<br>
+    Breed:   {{ entry.breed }} <br>
+    Age:   {{ entry.age }}<br>
+    Sex:   {{ entry.sex }}<br>
+    Traits:   {{ entry.traits }} <br>
+    Image Link:   {{ entry.image }} <br>
+    </p>
     {% endfor %}
 
 {% endblock %}
