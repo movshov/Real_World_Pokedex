@@ -22,7 +22,10 @@
     Age:   {{ entry.age }}<br>
     Sex:   {{ entry.sex }}<br>
     Traits:   {{ entry.traits }} <br>
-    Image Link:   {{ entry.image }} <br>
+    Image Link: {{ entry.image }}<br>
+    <div class=square>
+	    Image:  <img src={{entry.image}}><br>
+    </div>
     </p>
     {% endfor %}
 

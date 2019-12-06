@@ -21,4 +21,4 @@ def random_image(breed=None, subbreed=None):
     elif subbreed == None:
         return _get('breed/{0}/images/random'.format(breed))
     else:
-        return _get('breed{0}/{1}/images/random'.format(breed,subbreed))
+        return _get('breed/{0}/{1}/images/random'.format(breed,subbreed))

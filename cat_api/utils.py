@@ -8,7 +8,7 @@ url = 'https://api.thecatapi.com/v1/images/search?format=json'
 def _get():
     res = requests.get(url)
     if res.status_code == 200:
-        return res.json()
+        return res.json()["url"]
     else:
         return res
 
