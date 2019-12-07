@@ -18,8 +18,6 @@ class Sign(MethodView):
         species = request.form['species']
         species = species.lower()
         print("species is: \n",species)
-        rand_image = None
-        rand_fact = None
 
         # Based off the species assign either a dog or cat image. 
         if species == "dog":
@@ -43,6 +41,9 @@ class Sign(MethodView):
         elif species == "cat":
             rand_image = cat.random_image()
             rand_fact = cf.gimme_cat_fact()
+        else:
+            rand_image = None
+            rand_fact = None
 
         model = gbmodel.get_model()
         model.insert(request.form['name'], request.form['species'], request.form['breed'], request.form['age'], request.form['sex'], request.form['traits'], rand_image, rand_fact)
