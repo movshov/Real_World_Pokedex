@@ -25,6 +25,7 @@ class Sign(MethodView):
             # grab both identifiers.
             subbreed = None
             breed = None
+            rand_fact = None
             input1 = request.form['breed']
             print("input1 is: \n", input1)
             if ' ' in input1:
