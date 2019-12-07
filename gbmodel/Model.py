@@ -8,7 +8,7 @@ class Model():
         """
         pass
     # To insert a new entry.
-    def insert(self, name, species, breed, age, sex, traits, image):
+    def insert(self, name, species, breed, age, sex, traits, image, fact):
         """
         Inserts entry into database
         :param name: String
@@ -18,6 +18,7 @@ class Model():
         :param sex: String
         :param traits: String
         :param image: File
+        :param fact: String
         :return: none
         :raises: Database errors on connection and insrtion
         """

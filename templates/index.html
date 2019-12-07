@@ -9,7 +9,6 @@
 	<p class="heading">Sex: <input type=text name=sex>
         <p class="heading">Traits:
 	<textarea rows=5 cols=50 name=traits></textarea></p>
-	<p class="heading">Image: <input type=text name=image>
 	<p><input type=submit value=Sign></p>
     </form>
 
@@ -23,6 +22,7 @@
     Sex:   {{ entry.sex }}<br>
     Traits:   {{ entry.traits }} <br>
     Image Link: {{ entry.image }}<br>
+    Fact:  {{ entry.fact }}<br>
     <div class=square>
 	    Image:  <img src={{entry.image}}><br>
     </div>

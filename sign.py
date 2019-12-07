@@ -3,6 +3,7 @@ from flask.views import MethodView
 import gbmodel
 import dog_api as dog
 import cat_api as cat
+import cat_fact_api as cf
 
 class Sign(MethodView):
     def get(self):
@@ -36,11 +37,12 @@ class Sign(MethodView):
                 rand_image = dog.random_image(input1)
         elif species == "cat":
             rand_image = cat.random_image()
+            rand_fact = cf.gimme_cat_fact()
         else:
             rand_image = None
 
         model = gbmodel.get_model()
-        model.insert(request.form['name'], request.form['species'], request.form['breed'], request.form['age'], request.form['sex'], request.form['traits'], rand_image)
+        model.insert(request.form['name'], request.form['species'], request.form['breed'], request.form['age'], request.form['sex'], request.form['traits'], rand_image, rand_fact)
         return redirect(url_for('index'))
 
 
