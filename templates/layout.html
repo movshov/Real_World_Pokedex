@@ -16,7 +16,7 @@ a, h1, h2  { color: #00008F; }
 form       { margin:.1em auto; padding:.1em; /*width: 400px;*/ border: 1px; position: relative; left: 0px;}
 .heading  { font-weight: bold; }
 .page      { margin:.1em auto; padding:.1em; /*width: 504px; position: relative;*/ left: 30px;  }
-.entry     { margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid #888; overflow: auto; border: 3px solid #4CAF50; width: 45%; }
+.entry     { margin-bottom: 2em; padding-bottom: 2em; border-bottom: 1px solid #888; overflow: auto; /*border: 3px solid #4CAF50;*/ width: 45%; }
 input[type=text] { margin: .2em 0; padding: .5em; font-size: 12px; color: #777; /*width: 200px;*/}
 input[type=textarea] { margin: .2em 0; padding: .5em; font-size: 12px; color: #777; /*width: 200px;*/}
 img {max-width: 100%; max-height: 100%; float: left; }
@@ -42,60 +42,16 @@ img {max-width: 100%; max-height: 100%; float: left; }
     background-color: rgba(56, 24, 5, 0.527);
     bottom: 110%;       /* where I start my rain drop at top*/
 
-    animation: drop 12s infinite;
+    animation: drop {{ num_entry * 3 }}s infinite;
     transition-timing-function: linear;
 }
 
-/* Start dropping dogs or cats children */
-.rain_drops li:nth-child(1) { right: 20%; }
+{% for dist in rain_dist %}
+	/* Start dropping dogs or cats children */
+	.rain_drops li:nth-child({{ loop.index }}) { right: {{ dist }}%; animation-delay: {{ loop.index }}s; }
 
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(2) { right: 10%; animation-delay: 2s; }
+{% endfor %}
 
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(3) { right: 15%; animation-delay: 3s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(4) { right: 30%; animation-delay: 4s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(5) { right: 20%; animation-delay: 5s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(6) { right: 45%; animation-delay: 6s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(7) { right: 17%; animation-delay: 7s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(8) { right: 37%; animation-delay: 8s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(9) { right: 42%; animation-delay: 9s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(10) { right: 23%; animation-delay: 10s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(11) { right: 5%; animation-delay: 11s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(12) { right: 41%; animation-delay: 12s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(13) { right: 17%; animation-delay: 13s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(14) { right: 37%; animation-delay: 14s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(15) { right: 42%; animation-delay: 15s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(16) { right: 23%; animation-delay: 16s; }
-
-/* Dropping more dogs or cats children */
-.rain_drops li:nth-child(17) { right: 5%; animation-delay: 17s; }
 
 
 /* Actual animation of the falling rain_drops. */
@@ -106,7 +62,7 @@ img {max-width: 100%; max-height: 100%; float: left; }
     }
     100% {
 
-	    transform: translateY(calc(100% * 3.5 * {{ num_entry }})) rotate(630deg); /*3 is number of entries*/
+	    transform: translateY(calc(100% * 4 * {{ num_entry }})) rotate(630deg); /*3 is number of entries*/
         border-radius:80%;
     }
 }
