@@ -2,13 +2,18 @@ import requests
 import json
 import urllib.request
 
-url = 'https://api.thecatapi.com/v1/images/search?format=json'
 
-
-def _get():
-    res = requests.get(url)
-    if res.status_code == 200:
-        return res.json()[0]["url"]
+def _get(response):
+    if response == None:
+        res = requests.get('https://api.thecatapi.com/v1/images/search?format=json')
+        if res.status_code == 200:
+            return res.json()[0]["url"]
+        else:
+            return res
     else:
-        return res
+        res = requests.get('https://api.thecatapi.com/v1/breeds/')
+        if res.status_code == 200:
+            return res.json()
+        else:
+            return res
 

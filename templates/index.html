@@ -3,8 +3,12 @@
     <h2>Real World Pokedex</h2>
     <form action="{{ url_for('sign') }}" id="input_form" method=post>
 	<p class="heading">Name: <input type=text name=name>
-	<p class="heading">Species: <input type=text name=species>
-	<p class="heading">Breed:
+	<p class="heading">Species:
+	<select name = "species">
+	    <option value="cat">Cat</option>
+	    <option value="dog">Dog</option>
+	</select>
+	<p class="heading">Dog_Breeds:
 
 	<select size="5" name = "breed">
     	{% for name in dog_list %}
@@ -17,8 +21,29 @@
 	{% endfor %}
 	</select>
 
-	<p class="heading">Age: <input type=text name=age>
-	<p class="heading">Sex: <input type=text name=sex>
+	<p class="heading">Cat_Breeds:
+	<select size="5" name = "breed">
+    	{% for name in dog_list %}
+	    <option value="{{ name }}">{{ name }}</option>
+	    {% if dog_list[name]|length > 0 %}
+	       {% for i in dog_list[name] %}
+	           <option value="{{ i}} {{ name }}">{{ i }} {{ name }}</option>
+	       {% endfor %}
+	    {% endif %}
+	{% endfor %}
+	</select>
+
+	<p class="heading">Age:
+	<select name="age">
+	    {% for i in range(40) %}
+	        <option value="{{ i }}">{{ i }}</option>
+	    {% endfor %}
+	</select>
+	<p class="heading">Sex:
+	<select name="sex">
+	    <option value="male">Male</option>
+	    <option value="female">Female</option>
+	</select>
 	<p class="heading">Traits:
 	<textarea rows=5 cols=50 name=traits></textarea></p>
 	<p><input type=submit value=Sign></p>
