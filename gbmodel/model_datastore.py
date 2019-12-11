@@ -25,9 +25,8 @@ def from_datastore(entity):
         [Entity{key: (kind, id), prop: val, ...}]
 
     This returns:
-        [ name, email, date, message ]
-    where name, email, and message are Python strings
-    and where date is a Python datetime
+        [ name, species, breed, age, sex, traits, image, fact ]
+    where name, species, breed, age, sex, traits, image, and fact are Python strings
     """
     if not entity:
         return None
@@ -37,7 +36,7 @@ def from_datastore(entity):
 
 class model(Model):
     def __init__(self):
-        self.client = datastore.Client('cs430-bar-movshovich')
+        self.client = datastore.Client('YOUR CLOUD PLATFORM')
 
     #return all entities from datastore.
     def select(self):
