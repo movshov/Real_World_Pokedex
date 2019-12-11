@@ -68,44 +68,69 @@ Screencast Recording (20)
 ## static/:
 | File Name | Description |
 | ------ | ------ |
-| static/ | |
+| sytle.css | Technically a style sheet that isn't currently being used, keeps the directory formatting. |
 
 ## templates/:
 | File Name | Description |
 | ------ | ------ |
-| templates/ | |
+| index.html | Main html page to greet user. Dynamically adjusted with Jinja. |
+| layout.html | Dynamic layout for html and css thanks to Jinja. |
 
 ## cat_api/:
 | File Name | Description |
 | ------ | ------ |
-| `__init__.py` |  | 
-| utils.py | |
-| cat.py | |
+| `__init__.py` | Function initialization for cat api. | 
+| utils.py | Defines the `_get` function for the cat api. |
+| cat.py | Function definitions for various types of get request to the cat api. |
 
 ## cat_fact_api/:
 | File Name | Description |
 | ------ | ------ |
-| `__init__.py` | |
-| utils.py | |
-| cat_fact.py | |
+| `__init__.py` | Function initialization for cat facts api. |
+| utils.py | Defines the `_get` function for the cat facts api. |
+| cat_fact.py | Function definitions for various types of get request to the cat facts api. |
 
 ## dog_api/:
 | File Name | Description |
 | ------ | ------ |
-| `__init__.py` | |
-| utils.py | |
-| dog_api | |
+| `__init__.py` |  Function initialization for dog api.  |
+| utils.py | Defines the `_get` function for the dog api. |
+| dog_api | Function definitions for various types of get request to the dog api. |
 
 ## dog_fact_api/:
 | File Name | Description |
 | ------ | ------ |
-| `__init__.py` | |
-| utils.py | |
-| dog_fact.py | |
+| `__init__.py` |  Function initialization for dog facts api.  |
+| utils.py | Defines the `_get` function for the dog facts api. |
+| dog_fact.py | Function definitions for various types of get request to the dog facts api. |
 
 ## gbmodel/:
 | File Name | Description |
 | ------ | ------ |
-| `__init__.py` | |
-| Model.py | |
-| model_datastore.py | |
+| `__init__.py` | Sets a backend and returns the model. |
+| Model.py | Base class for model with a select and insert function. |
+| model_datastore.py | Connect to datastore backend. Modify self.client for individual program launch. |
+
+
+# References:
+Transitioning from github to bitbucket:
+- https://www.atlassian.com/git/tutorials/git-move-repository
+
+Jinja Template References:
+- https://stackoverflow.com/questions/20233721/how-do-you-index-on-a-jinja-template
+- https://realpython.com/primer-on-jinja-templating/
+- http://www.dataengineering.life/python_vars_in_flask_templates/
+- https://stackoverflow.com/questions/12145434/how-to-output-loop-counter-in-python-jinja-template
+
+Css Margins and Layout References:
+- https://www.w3schools.com/css/css_margin.asp
+- https://www.w3schools.com/css/css_float.asp
+
+APIs:
+- https://thecatapi.com/
+- https://dog.ceo/
+- https://kinduff.github.io/dog-api/
+- https://catfact.ninja/
+
+Rain Drop Shape Tutorial:
+* https://www.youtube.com/watch?v=CdWPGUkO2nM
