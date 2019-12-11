@@ -12,10 +12,21 @@
 	<p><input type=submit value=Sign></p>
     </form>
 
+    <!-- Need to include this in html for dynamic raining of cats and dogs
+    	 THIS GOES IN THE LAYOUT -->
+    <ul class="rain_drops">
+	{% for entry in entries %}
+		<li> <img class="square2" src={{ entry.image }}><br></li>
+    	{% endfor %}
+	</ul>
+
     <h2>Entries</h2>
     {% for entry in entries %}
-    <p class=entry>
-    Name: {{ entry.name }} <br>
+    <div class=entry>
+    <p class=square>
+    	Name: {{ entry.name }} <br>
+	Image:  <img src={{entry.image}}><br>
+    </p>
     Species: {{ entry.species }}<br>
     Breed:   {{ entry.breed }} <br>
     Age:   {{ entry.age }}<br>
@@ -23,10 +34,7 @@
     Traits:   {{ entry.traits }} <br>
     Image Link: {{ entry.image }}<br>
     Fact:  {{ entry.fact }}<br>
-    <div class=square>
-	    Image:  <img src={{entry.image}}><br>
     </div>
-    </p>
     {% endfor %}
 
 {% endblock %}
