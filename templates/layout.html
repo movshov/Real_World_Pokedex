@@ -21,7 +21,7 @@ input[type=text] { margin: .2em 0; padding: .5em; font-size: 12px; color: #777; 
 input[type=textarea] { margin: .2em 0; padding: .5em; font-size: 12px; color: #777; /*width: 200px;*/}
 img {max-width: 100%; max-height: 100%; float: left; }
 .square { height: auto; width: auto; max-height: 200px; max-width: 200px; }
-.square2 { height: auto; width: auto; max-height: 150px; max-width: 150px; /*border-radius:80%;*/ }
+.square2 { height: 75px;/*auto;*/ width: 75px;/*auto;*/ /*max-height: 150px; max-width: 150px;*/ transform: rotate(-45deg); transform-origin: top center; border-radius:145% 0 145% 120%; }
 
 /* Configuring the rain_drop class */
 .rain_drops {
@@ -38,8 +38,8 @@ img {max-width: 100%; max-height: 100%; float: left; }
 .rain_drops li {
     position: absolute;
     list-style: none;
-    display: block;
-    background-color: rgba(56, 24, 5, 0.527);
+    /*display: block;
+    background-color: rgba(56, 24, 5, 0.527);*/
     bottom: 110%;       /* where I start my rain drop at top*/
 
     animation: drop {{ num_entry * 3 }}s infinite;
@@ -62,7 +62,7 @@ img {max-width: 100%; max-height: 100%; float: left; }
     }
     100% {
 
-	    transform: translateY(calc(100% * 3.5 * {{ num_entry }})) rotate(630deg); /*3 is number of entries*/
+	    transform: translateY(calc(100% * 3.5 * {{ num_entry }} * 1.5 )) /*rotate(630deg)*/; /*3 is number of entries*/
         border-radius:80%;
     }
 }
