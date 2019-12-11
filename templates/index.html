@@ -4,7 +4,8 @@
     <form action="{{ url_for('sign') }}" id="input_form" method=post>
 	<p class="heading">Name: <input type=text name=name>
 	<p class="heading">Species:
-	<select name = "species">
+	<select required name = "species">
+	    <option value="none" selected disabled hidden> 
 	    <option value="cat">Cat</option>
 	    <option value="dog">Dog</option>
 	</select>
@@ -23,29 +24,26 @@
 
 	<p class="heading">Cat_Breeds:
 	<select size="5" name = "breed">
-    	{% for name in dog_list %}
-	    <option value="{{ name }}">{{ name }}</option>
-	    {% if dog_list[name]|length > 0 %}
-	       {% for i in dog_list[name] %}
-	           <option value="{{ i}} {{ name }}">{{ i }} {{ name }}</option>
-	       {% endfor %}
-	    {% endif %}
+    	{% for name in cat_list %}
+             <option value="{{ name['name'] }}">{{ name['name'] }}</option>
 	{% endfor %}
 	</select>
 
 	<p class="heading">Age:
 	<select name="age">
+	    <option value="none" selected disabled hidden> 
 	    {% for i in range(40) %}
 	        <option value="{{ i }}">{{ i }}</option>
 	    {% endfor %}
 	</select>
 	<p class="heading">Sex:
 	<select name="sex">
+	    <option value="none" selected disabled hidden> 
 	    <option value="male">Male</option>
 	    <option value="female">Female</option>
 	</select>
 	<p class="heading">Traits:
-	<textarea rows=5 cols=50 name=traits></textarea></p>
+	<textarea rows=5 cols=50 name=traits value=None></textarea></p>
 	<p><input type=submit value=Sign></p>
     </form>
 
