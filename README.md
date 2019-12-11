@@ -1,4 +1,4 @@
-#Real World Pokedex
+# Real World Pokedex
 By: ***Bar Movshovich*** and ***Jordan Le***
 
 ***We've got dogs, we've got cats, and we've got facts!***
