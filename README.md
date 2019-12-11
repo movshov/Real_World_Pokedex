@@ -4,7 +4,7 @@ By: ***Bar Movshovich*** and ***Jordan Le***
 ***We've got dogs, we've got cats, and we've got facts!***
 
 ## How to run:
-**http://cs430-bar-movshovich.appspot.com/**
+**http://cs430-jordan-le.appspot.com**
 
 ## Assignment Requirements:
 Core Functionality (30)
@@ -44,7 +44,7 @@ Screencast Recording (20)
 
 * For development, run with `python3 app.py` and click the given link to visit the web preview.
 
-* To deploy on google cloud, use the following: `...`
+* To deploy on google cloud, use the following: `gcloud app deploy`
 
 ## API's used:
 * TheCatAPI - Cats as a Service, Every day is Caturday.
