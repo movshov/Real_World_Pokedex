@@ -1,18 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
     <h2>Real World Pokedex</h2>
-    <form action="{{ url_for('sign') }}" method=post>
+    <form action="{{ url_for('sign') }}" id="input_form" method=post>
 	<p class="heading">Name: <input type=text name=name>
 	<p class="heading">Species: <input type=text name=species>
-	<p class="heading">Breed: <input type=text name=breed>
+	<p class="heading">Breed:
+
+
+
+
+	<select size="5" name = "breed">
+    	{% for name in dog_list %}
+	    <option value="{{ name }}">{{ name }}</option>
+	    {% if dog_list[name]|length > 0 %}
+	       {% for i in dog_list[name] %}
+	           <option value="{{ i}} {{ name }}">{{ i }} {{ name }}</option>
+	       {% endfor %}
+	    {% endif %}
+	{% endfor %}
+	</select>
+
 	<p class="heading">Age: <input type=text name=age>
 	<p class="heading">Sex: <input type=text name=sex>
-        <p class="heading">Traits:
+	<p class="heading">Traits:
 	<textarea rows=5 cols=50 name=traits></textarea></p>
 	<p><input type=submit value=Sign></p>
     </form>
 
-    <h2>Entries</h2>
+
+     <h2>Entries</h2>
     {% for entry in entries %}
     <p class=entry>
     Name: {{ entry.name }} <br>
@@ -28,5 +44,4 @@
     </div>
     </p>
     {% endfor %}
-
-{% endblock %}
+    {% endblock %}

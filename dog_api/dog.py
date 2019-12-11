@@ -5,7 +5,7 @@ from .utils import _get
 
 def master_breeds():
     """Gets all breeds, not including sub-breeds. Returns a list of breed names."""
-    return _get('breeds/list')
+    return _get('breeds/list/all')
 
 
 def subbreeds(breed):
