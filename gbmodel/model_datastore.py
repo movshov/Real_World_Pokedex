@@ -36,7 +36,7 @@ def from_datastore(entity):
 
 class model(Model):
     def __init__(self):
-        self.client = datastore.Client('YOUR CLOUD PLATFORM')
+        self.client = datastore.Client('cs430-bar-movshovich')
 
     #return all entities from datastore.
     def select(self):
